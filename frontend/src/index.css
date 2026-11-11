@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Application colours */
+  --color-app-bg: #F5F7FA;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #DDF9FF;
+
+  /* Ocean Depths brand palette */
+  --color-deep-navy: #0A3D62;
+  --color-accent-blue: #2E86DE;
+  --color-accent-teal: #00B894;
+  --color-ice-blue: #DDF9FF;
+
+  /* Supporting colours */
+  --color-charcoal: #0A3D62;
+  --color-text-muted: #66747A;
+  --color-border: #DCE5EC;
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background-color: var(--color-app-bg);
+    color: var(--color-deep-navy);
+    font-family: var(--font-sans);
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+/* =================================
+   PRIVATE NOTES - CHECKLIST LAYOUT
+   Apple Notes-inspired alignment
+================================= */
+
+ul[data-type="taskList"] {
+  display: block !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 12px 0 !important;
+}
+
+ul[data-type="taskList"] li[data-type="taskItem"] {
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr) !important;
+  align-items: start !important;
+  column-gap: 10px !important;
+  margin: 10px 0 !important;
+  padding: 0 !important;
+}
+
+ul[data-type="taskList"] li[data-type="taskItem"] > label {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  margin: 3px 0 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+ul[data-type="taskList"] li[data-type="taskItem"] > label input {
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  accent-color: #527A5A;
+  cursor: pointer !important;
+}
+
+ul[data-type="taskList"] li[data-type="taskItem"] > div {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+ul[data-type="taskList"] li[data-type="taskItem"] > div p {
+  margin: 0 !important;
+  line-height: 1.7 !important;
+}
