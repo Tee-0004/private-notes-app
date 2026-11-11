@@ -45,11 +45,15 @@ export const signup = async (req, res) => {
       user: data.user
     });
 
-  } catch (error) {
-    return res.status(500).json({
-      message: 'Server error during registration'
-    });
-  }
+  
+} catch (error) {
+  console.error('LOGIN ERROR:', error);
+
+  return res.status(500).json({
+    message: 'Server error during login'
+  });
+}
+
 };
 
 
