@@ -1,3 +1,4 @@
+
 // Load environment variables first
 import 'dotenv/config';
 
@@ -18,6 +19,7 @@ app.use(cors({
         'http://localhost:5173',
         'http://localhost:5174',
         'http://localhost:5175',
+        'https://private-notes-app-tebogo.netlify.app',
     ],
     credentials: true
 }));
