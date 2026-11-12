@@ -51,6 +51,11 @@ function Login() {
       return;
     }
 
+    if (password.length > 12) {
+      setMessage('Password cannot exceed 12 characters.');
+      return;
+    }
+
     try {
       setLoading(true);
 
@@ -60,9 +65,16 @@ function Login() {
       navigate('/dashboard');
 
     } catch (error) {
-      setMessage(
-        error.message || 'Unable to sign in. Please check your login details.'
-      );
+      const errorMessage = error.message || '';
+
+      if (
+        errorMessage.toLowerCase().includes('invalid login credentials') ||
+        errorMessage.toLowerCase().includes('invalid credentials')
+      ) {
+        setMessage('Incorrect email or password.');
+      } else {
+        setMessage(errorMessage || 'Unable to sign in. Please try again.');
+      }
 
     } finally {
       setLoading(false);
@@ -184,6 +196,7 @@ function Login() {
                   placeholder="Enter your password"
                   autoComplete="current-password"
                   required
+                  maxLength={12}
                   className={`${inputClass} pr-20`}
                 />
 

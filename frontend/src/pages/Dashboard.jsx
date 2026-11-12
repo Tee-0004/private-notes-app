@@ -31,7 +31,11 @@ function getGreeting() {
     return 'Good afternoon';
   }
 
-  return 'Good evening';
+  if (hour >= 17 && hour < 21) {
+    return 'Good evening';
+  }
+
+  return 'Good night';
 }
 
 function Dashboard() {
