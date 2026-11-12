@@ -1,4 +1,5 @@
-const API_URL = 'https://private-notes-app-zyce.onrender.com/api';
+
+const API_URL = '/api';
 
 export const apiRequest = async (endpoint, options = {}) => {
   const response = await fetch(`${API_URL}${endpoint}`, {
